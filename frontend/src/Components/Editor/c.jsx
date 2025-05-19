@@ -37,7 +37,7 @@ function C() {
       toast.remove();
       setOutput("Error in communication with the server");
       toast.error("Please Enter Valid C Code");
-      console.log(`Error is in c.jsx. The error: ${err}`);
+      console.log(`Error is in c.jsx. The error: ${err.message}`);
     }
   };
 
@@ -116,7 +116,10 @@ function C() {
                   id="c"
                   value={code}
                   onChange={(e) => setCode(e.target.value)}
-                  placeholder='#include<stdio.h>\nint main() {\n    printf("Hello Codofile");\n    return 0;\n}'
+                  placeholder='#include<stdio.h>
+                  int main() {
+                  printf("Welcome To CodeSync !");
+                  }'
                 ></textarea>
               </div>
               <h1 className="invisible">

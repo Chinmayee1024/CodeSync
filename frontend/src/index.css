@@ -15,13 +15,12 @@ https://www.softr.io/tools/svg-wave-generator
   --background-color: #1c1e29;
   --second-background-color: #070808cc;
   --primiary-color: #f2f2f2;
-
- 
 }
 html {
   font-size: 15px;
   font-family: Verdana;
   background-color: var(--background-color);
+  /* scroll-behavior: smooth; */
 }
 .btn {
   cursor: pointer;
@@ -35,6 +34,10 @@ html {
 .btn:hover {
   transition: all ease-in-out 0.2s;
   box-shadow: 1px 1px 5px white;
+  -webkit-transition: all ease-in-out 0.2s;
+  -moz-transition: all ease-in-out 0.2s;
+  -ms-transition: all ease-in-out 0.2s;
+  -o-transition: all ease-in-out 0.2s;
 }
 .blob_a {
   position: absolute;
@@ -126,7 +129,10 @@ Header Section Designing...
 ============================================================*/
 .headerContainer {
   display: flex;
-  border: 1px solid var(--primiary-color);
+  /*border: 1px solid var(--primiary-color);
+  */
+  border-bottom: 1px solid grey;
+  border-radius: 0.5rem;
   justify-content: space-between;
   align-items: center;
   position: fixed;
@@ -136,6 +142,11 @@ Header Section Designing...
   z-index: 100;
   top: 0%;
   background-color: var(--background-color);
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  box-shadow: 0.1rem 0.01rem 1rem #040404;
 }
 .headerImage {
   display: flex;
@@ -906,6 +917,7 @@ Responsive page Design
   }
   .voicePlayground mark h1 {
     text-align: center;
+    margin-top: 2rem;
   }
   .codemaincode {
     height: 30vh;
@@ -941,6 +953,7 @@ Responsive page Design
   }
   .invisible {
     display: block;
+    margin-top: 5rem;
   }
   .snippet {
     border: 0;
@@ -957,7 +970,9 @@ Responsive page Design
       grid-template-columns: 0 1fr;
   }
   */
-
+  .voicePlayground {
+    margin-top: 2rem;
+  }
   .registerMainComponent {
     height: 100%;
   }
@@ -1313,12 +1328,14 @@ Responsive page Design
   top: 50px; /* Slightly below the profile icon */
   right: 0;
   background-color: var(--background-color);
-  border: 1px solid var(--second-background-color);
+  /* border: 1px solid var(--second-background-color); */
   border-radius: 8px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   min-width: 150px;
   z-index: 1000;
   padding: 10px 0;
+  border: 1px solid grey;
+  box-shadow: 0.1rem 0.01rem 1rem #040404;
 }
 
 /* Dropdown Options */
@@ -1476,7 +1493,6 @@ Responsive page Design
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
-
 }
 
 .forgot-form label {
@@ -1551,5 +1567,133 @@ Responsive page Design
   .forgot-form button {
     font-size: 0.9rem;
     padding: 0.6rem;
+  }
+}
+/* .languageLinks {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.languageLinks a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.languageLinks a:hover {
+  color: #007bff;
+} */
+/* .headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #111;
+  color: white;
+  position: relative;
+}
+
+.headerImage {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.headerlogo {
+  height: 40px;
+}
+
+.headerp {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+} */
+
+.languageLinks {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.languageLinks a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.languageLinks a:hover {
+  color: var(--main-color);
+}
+
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Mobile dropdown menu */
+.mobileMenu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 65px;
+  left: 0;
+  width: 100%;
+  background-color: var(--background-color);
+  z-index: 1000;
+  width: 40vw;
+  margin-left: 40vw;
+  border: 1px solid rgb(8, 8, 8);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  border: 1px solid grey;
+  box-shadow: 0.1rem 0.01rem 1rem #040404;
+}
+
+.mobileMenu a {
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--main-color);
+  border-bottom: 1px solid #333;
+  transition: background 0.2s;
+}
+
+.mobileMenu a:hover {
+  /* background-color: #222; */
+  background-color: #f2f2f2;
+}
+
+/* Responsive Behavior */
+@media (max-width: 768px) {
+  .languageLinks {
+    display: none;
+  }
+  .mobileMenu {
+    display: flex;
+  }
+}
+
+@media (min-width: 250px) and (max-width: 480px) {
+  .hamburger {
+    display: block;
+    /* transform: translateX(15rem); */
+    color: white;
+    margin-left: 40vw;
+  }
+}
+@media (min-width: 480px) and (max-width: 768px) {
+  .hamburger {
+    display: block;
+    /* transform: translateX(15rem); */
+    color: white;
+    margin-left: 55vw;
   }
 }

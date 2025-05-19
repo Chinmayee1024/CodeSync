@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import LangList from './LangList'
 import Tesseract from 'tesseract.js';
 import { toast } from "react-hot-toast"
-import copy_icon from '../../assets/copy_icon.gif'
+// import copy_icon from '../../assets/copy_icon.gif'
 
 function Image2Text() {
 

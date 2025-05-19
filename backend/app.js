@@ -6,12 +6,14 @@ const express = require("express");
 const app = new express();
 const PORT = process.env.PORT;
 const feedbackRoutes = require("./src/routes/feedbackRoutes");
+const authRoutes = require("./src/routes/authRoutes");
 require("./src/db/conn");
 
 app.use(cors());
 app.use(express.json());
-app.use(require("./src/routes/authRoutes"));
+// app.use(require("./src/routes/authRoutes"));
 app.use("/api", feedbackRoutes);
+app.use("/", authRoutes);
 
 const consoleURL = (req, res, next) => {
   console.log(`User at URL : localhost:${PORT}${req.url}`);

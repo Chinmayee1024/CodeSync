@@ -19,12 +19,10 @@ function Python() {
     console.log("Payload sent to the backend:", payload);
 
     try {
-
       const response = await fetch("http://localhost:5000/runpy", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-         
         },
         body: JSON.stringify(payload),
       });
@@ -131,7 +129,7 @@ function Python() {
                   id="python"
                   value={code}
                   onChange={(e) => setCode(e.target.value)}
-                  placeholder='print("hello codoPlayers")'
+                  placeholder='print("Welcome To CodeSync !")'
                 ></textarea>
               </div>
               <h1 className="invisible">

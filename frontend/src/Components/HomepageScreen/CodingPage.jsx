@@ -1,30 +1,32 @@
-import React from 'react'
+import React from "react";
 // import ImageCoding from '../../assets/JavaScript frameworks-rafiki.svg'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
-function CodingPage(props) { 
+function CodingPage(props) {
   return (
     <>
-        <div className="codingContainer container"> 
-            <h1 className='title'>{props.title}</h1>
-            <div className="codingSection" id={props.uniId}
+      <div id={props.id}>
+        <div className="codingContainer container">
+          <h1 className="title">{props.title}</h1>
+          <div
+            className="codingSection"
+
             //  style={props.poss}
-            >
-                <div className="codingInfo codingsec">
-                    <div className="infoCoding infoDetails">
-                    {props.info}
-                    </div>
-                    <NavLink to={props.path}><button className="btn">{props.con}</button></NavLink>
-                </div>
-                <div className="codingimage codingsec">
-                    <img
-                    src={props.image}
-                     alt="image1" className='CodingImg' />
-                </div>
+          >
+            <div className="codingInfo codingsec">
+              <div className="infoCoding infoDetails">{props.info}</div>
+              <NavLink to={props.path}>
+                <button className="btn">{props.con}</button>
+              </NavLink>
             </div>
+            <div className="codingimage codingsec">
+              <img src={props.image} alt="image1" className="CodingImg" />
+            </div>
+          </div>
         </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default CodingPage
+export default CodingPage;

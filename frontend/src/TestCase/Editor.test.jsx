@@ -34,8 +34,8 @@ describe("Html Component", () => {
     const htmlcontent = resultIframe.contentDocument;
     expect(htmlcontent.body.innerHTML).toContain("Hello, HTML!");
 
-    // const htmlContent = "Hello World"
-    // expect(htmlContent).toContain('Hello World');
+    // const htmlContent = "Welcome To CodeSync !"
+    // expect(htmlContent).toContain('Welcome To CodeSync !');
   });
   it("should update CSS code on trigger", () => {
     render(
@@ -145,11 +145,11 @@ describe("Javascript Component", () => {
     const downloadLink = screen.getByTestId("downloadLink");
     expect(downloadLink).toHaveAttribute(
       "href",
-      expect.stringContaining("CodoFile-")
+      expect.stringContaining("CodeSync-")
     );
     expect(downloadLink).toHaveAttribute(
       "download",
-      expect.stringContaining("CodoFile-")
+      expect.stringContaining("CodeSync-")
     );
   });
 });
@@ -187,7 +187,7 @@ describe("Python Component", () => {
     );
     // Simulate user input in the code textarea
     const codeTextarea = screen.getByPlaceholderText(
-      'print("hello codoPlayers")'
+      'print("Welcome To CodeSync !")'
     );
     fireEvent.change(codeTextarea, {
       target: { value: 'print("Hello, Python!")' },

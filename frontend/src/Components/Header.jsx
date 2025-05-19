@@ -1,42 +1,43 @@
 import React, { useContext, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import headerImg from "../assets/mainLogo.png";
-import { NavLink } from "react-router-dom";
+import profileIcon from "../assets/profileIcon.png";
 import { UsedContext } from "./App";
-import profileIcon from "../assets/profileIcon.png"; // Add your profile icon image here
 
 function Header() {
   const { state } = useContext(UsedContext);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false); // State to toggle dropdown visibility
+  const toggleDropdown = () => setIsDropdownVisible((prev) => !prev);
+  const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
 
-  const toggleDropdown = () => {
-    setIsDropdownVisible((prev) => !prev); // Toggle dropdown visibility
-  };
+  const location = useLocation();
+  const isEditorPage = location.pathname.startsWith("/editor");
+  const isLoginPage = location.pathname.startsWith("/login");
+  const isRegisterPage = location.pathname.startsWith("/register");
 
   const RenderMenu = () => {
     if (state) {
       return (
-        <>
-          {/* Profile Icon with Dropdown */}
-          <div className="profile-container">
-            <img
-              src={profileIcon} // Use the path to your profile icon image
-              alt="Profile"
-              className="profile-icon"
-              onClick={toggleDropdown}
-            />
-            {isDropdownVisible && (
-              <div className="profile-dropdown">
-                <NavLink to="/settings" className="dropdown-option">
-                  Settings
-                </NavLink>
-                <NavLink to="/logout" className="dropdown-option">
-                  Logout
-                </NavLink>
-              </div>
-            )}
-          </div>
-        </>
+        <div className="profile-container">
+          <img
+            src={profileIcon}
+            alt="Profile"
+            className="profile-icon"
+            onClick={toggleDropdown}
+          />
+          {isDropdownVisible && (
+            <div className="profile-dropdown">
+              <NavLink to="/profile" className="dropdown-option">
+                Profile
+              </NavLink>
+              <NavLink to="/logout" className="dropdown-option">
+                Logout
+              </NavLink>
+            </div>
+          )}
+        </div>
       );
     } else {
       return (
@@ -60,6 +61,41 @@ function Header() {
           CodeSync
         </NavLink>
       </div>
+
+      {/* Only show nav links & hamburger if NOT on editor/login/register */}
+      {!(isEditorPage || isLoginPage || isRegisterPage) && (
+        <>
+          {/* Hamburger icon */}
+          <div className="hamburger" onClick={toggleMobileMenu}>
+            ☰
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="languageLinks">
+            <a href="#python">Python</a>
+            <a href="#javascript">JavaScript</a>
+            <a href="#java">Java</a>
+            <a href="#c">C</a>
+            <a href="#dart">Dart</a>
+            <a href="#image2text">Image2Text</a>
+            <a href="#voice2text">Voice2Text</a>
+          </div>
+
+          {/* Mobile Dropdown Menu */}
+          {isMobileMenuOpen && (
+            <div className="mobileMenu">
+              <a href="#python" onClick={toggleMobileMenu}>Python</a>
+              <a href="#javascript" onClick={toggleMobileMenu}>JavaScript</a>
+              <a href="#java" onClick={toggleMobileMenu}>Java</a>
+              <a href="#c" onClick={toggleMobileMenu}>C</a>
+              <a href="#dart" onClick={toggleMobileMenu}>Dart</a>
+              <a href="#image2text" onClick={toggleMobileMenu}>Image2Text</a>
+              <a href="#voice2text" onClick={toggleMobileMenu}>Voice2Text</a>
+            </div>
+          )}
+        </>
+      )}
+
       <div className="Headerbtngroup">
         <RenderMenu />
       </div>

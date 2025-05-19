@@ -31,8 +31,6 @@ const runPython = async (req, res) => {
   }
 };
 
-
-
 const runDart = async (req, res) => {
   const { language = "dart", code = "void main(){print('hello dart');}" } =
     req.body;
@@ -69,9 +67,17 @@ const runJava = async (req, res) => {
     return res.json({ filepath, output });
   } catch (err) {
     console.error("Error running Java code:", err);
-    const match = err.toString().match(/Exception in thread "main" ([^\n]+)/);
-    const realError = match ? match[0].trim() : "Unknown error occurred";
-    res.status(500).json({ error: `Error: ${realError}` });
+
+    // Extract meaningful error message from stderr or fallback
+    const match = err
+      .toString()
+      .match(/(\w+\.java):(\d+):\s+error:\s+([\s\S]*?)\n/);
+
+    const realError = match
+      ? `File ${match[1]} - Line ${match[2]}: ${match[3].trim()}`
+      : err.toString();
+
+    res.status(500).json({ error: `Java Error: ${realError}` });
   }
 };
 

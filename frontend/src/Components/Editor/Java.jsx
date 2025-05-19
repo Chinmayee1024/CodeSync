@@ -31,13 +31,14 @@ function Java() {
       } else {
         setOutput(data.error);
         toast.remove();
-        toast.error("An error Occurred.");
+        toast.error("An error occurred.");
+        console.error("Error in execution:", data.error);
       }
     } catch (err) {
       toast.remove();
       setOutput("Error in communication with the server");
       toast.error("Please Enter Valid Java Code");
-      console.log(`Error is in java.jsx. The error: ${err}`);
+      console.error(`Error in java.jsx. The error: ${err}`);
     }
   };
 
@@ -116,7 +117,11 @@ function Java() {
                   id="java"
                   value={code}
                   onChange={(e) => setCode(e.target.value)}
-                  placeholder='public class Main { public static void main(String[] args) { System.out.println("Hello Codofile"); } }'
+                  placeholder='public class Main{
+                   public static void main(String[] args){
+                   System.out.println("Welcome To CodeSync !"); 
+                   } 
+                   }'
                 ></textarea>
               </div>
               <h1 className="invisible">
