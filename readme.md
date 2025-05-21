@@ -1,8 +1,6 @@
 # CodeSync- Code Editor with extending features.
 
-### **[Live Demo ](https://CodeSync-85b0c.web.app/)**
-
-    1. It is Basically a Code Editor Which can Execute Javascript, Python and Dart Code.
+    1. It is Basically a Code Editor Which can Execute C,Java,Html,CSS, Javascript, Python and Dart Code.
 
     2 .It have Two Features:
       a. Image to Text - In this you can upload any image .if the image contains any Text then it will extract that text and show in the browser.
@@ -46,54 +44,5 @@
 
     12. npm run both
 
-# About this Project
-
-## [ A ] Overview of CodeSync Compiler
-
-  <!-- ![Overview](./images/overview.png) -->
-
-### 1. Home Page
-
-![HomePage](./documentation/Project%20Assets/HomePage.PNG)
-
-### 2. JavaScript Editor Page
-
-![JavaScriptEditorPage](./documentation/Project%20Assets/JavascriptEditorPage.PNG)
-
-### 3. Python Editor Page
-
-![PythonEditorpage](./documentation/Project%20Assets/PythonEditorPage.PNG)
-
-### 4. Dart Editor Page
-
-![DartEditorPage](./documentation/Project%20Assets/DartPage.PNG)
-
-### 5. Html Editor Page
-
-![HtmlEditorPage](./documentation/Project%20Assets/htmlPage.PNG)
-
-### 6. Voice to Text Page
-
-![VoiceToTextPage](./documentation/Project%20Assets/Image2TextPage.PNG)
-
-### 7. Image to Text Page
-
-![ImageToTextPage](./documentation/Project%20Assets/Voice2TextPage.PNG)
-
-### 8. Page not Found Page
-
-![PageNotFoundPage](./documentation/Project%20Assets/PagenotfoundPage.PNG)
-
-### 9. Login Page
-
-![LoginPage](./documentation/Project%20Assets/LoginPage.PNG)
-
-### 10. Register Page
-
-![RegisterPage](./documentation/Project%20Assets/RegisterPage.PNG)
-
-## [ B ] Contributor
-
-### - This Whole Project Belong to **[Chinmayee Mohanty,Neha Swain ,Mukti Prasad dash]**.
 
 ### Copyright (C) 2025 **Chinmayee Mohanty** , *chinmayeeMohanty412@gmail.com*.
